@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Open The Door</title>
+		<link rel="stylesheet" type="text/css" href="style.css">				
+	</head>
+	<body>
+		<div class="three_gates">
+			<div class="gate_1 gates" onclick="gate_clicked(0);">
+				<span class="number" >1</span>
+				<div class="g_content"></div>
+			</div>
+			<div class="gate_2 gates" onclick="gate_clicked(1);">
+				<span class="number" >2</span>
+				<div class="g_content"></div>
+			</div>
+			<div class="gate_3 gates last" onclick="gate_clicked(2);">
+				<span class="number" >3</span>
+				<div class="g_content"></div>
+			</div>
+			<div style="clear:both"></div>
+		</div>
+		<div class="interface">
+			<div class="info">
+				<p class="instructions">Test Your Luck By Choosing One Of The Door And Have A Chance to win a cool car</p>
+				<a class="button" href="">Try</a>
+				<div style="clear:both"></div>
+			</div>
+                        
+		</div>
+               <div class="reset" onclick="reload();">
+                                <a href="">Reset</a>
+                        </div>
+
+		<script src="game.js"></script>
+	</body>
+</html>

@@ -1,0 +1,152 @@
+*
+	{
+		padding: 0;
+		margin: 0;
+		text-decoration: none;
+		font-family: 'calibri light',arial,tahoma,sans-serif;
+		-webkit-transition:all .3s;
+		-moz-transition:all .3s;
+		-ms-transition:all .3s;
+		transition:all .3s;
+	}
+body
+	{
+		background-color: rgb(230,230,230);
+	}
+@-webkit-keyframes ani
+	{
+		0%
+		{
+			clip: rect(242px,142px,242px,142px);
+		}
+		100%
+		{
+			clip: rect(0,284px,484px,0);
+		}
+	}
+.three_gates
+	{
+		width: 960px;
+		margin: 0 auto;
+		padding-top: 30px;
+		opacity: .65;
+	}
+.gates
+	{
+		width: 300px;
+		height: 500px;
+		float: left;
+		position: relative;
+		background-color: #3d9bb5;
+		margin-right: 30px;
+		box-sizing: border-box;
+		border: 8px solid #347A8D;
+		text-align: center;
+	}
+.gates .number
+	{
+		
+		font-size: 80px;
+		color: #D0EAF1;
+		display: inline-block;
+		background-color: #428699;
+		width: 100px;
+		height: 100px;
+		line-height: 100px;
+		margin-top: 100px;
+		border: 2px solid;
+		box-shadow: 0 0 3px #428699;
+	}
+.last
+	{
+		margin-right: 0;
+	}
+.g_content
+	{
+		display: none;
+		font-size: 80px;
+		color: #fff;
+		overflow: hidden;
+		text-transform: uppercase;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		line-height: 484px;
+		background-color: #E28888;
+	}
+.clip_ani
+	{
+		-webkit-animation: ani 1s;
+	}
+.interface
+	{
+		width: 100%;
+		background-color: #d5d5d5;
+		position: fixed;
+		top: 260px;
+		left: 0;
+		right: 0;
+	}
+.info
+	{
+		margin: 0 auto;
+		width:800px;
+		padding: 40px;
+	}
+.instructions
+	{
+		color: #5f5f5f;
+		font-size: 20px;
+		margin-bottom: 20px;
+		text-transform: capitalize;
+	}
+.result
+	{
+		font-size: 45px;
+		text-align: center;
+		font-weight: bold;
+		text-transform: capitalize;
+	}
+.won
+	{
+		color: rgb(28, 129, 28);
+	}
+.lose
+	{
+		color: rgb(201, 41, 41);
+	}
+.info a
+	{
+		display: inline-block;
+		width: 100px;
+		font-size: 20px;
+		text-transform: uppercase;
+		color: #fff;
+		background-color: #3d9bb5;
+		border: 1px solid;
+		box-shadow: 0 0 3px #3d9bb5;
+		padding: 4px 0;
+		text-align: center;
+		float: right;
+	}
+.info a:hover, .info a:active
+	{
+		background-color: #858585;
+		box-shadow: 0 0 3px #858585;
+	}
+.reset a{
+               display:block;
+               text-decoration:none;
+               position:fixed;
+               top:30px;
+               left:20px;
+                font-size: 20px;
+		color: #D0EAF1;
+		background-color: #428699;
+               border: 1px solid;
+		box-shadow: 0 0 3px #3d9bb5;
+               
+
+        }
