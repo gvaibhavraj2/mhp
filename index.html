@@ -3,9 +3,11 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Open The Door</title>
-		<link rel="stylesheet" type="text/css" href="style.css">				
+		<link rel="stylesheet" type="text/css" href="style.css">	
+                			
 	</head>
 	<body>
+            <div class="wrapper">
 		<div class="three_gates">
 			<div class="gate_1 gates" onclick="gate_clicked(0);">
 				<span class="number" >1</span>
@@ -29,8 +31,24 @@
 			</div>
                         
 		</div>
-               <div class="reset" onclick="reload();">
+               <div class="menu">
+                        <div class="reset" onclick="reloadpage();">
                                 <a href="">Reset</a>
+                        </div>
+                        <div class="rulebutton" onclick="displaybox();">
+                                <a href="">Rules</a>
+                        </div>
+               </div>
+             </div>
+                <div class="rules">
+                              <ul>
+                                <li>The player selects a door.</li>
+                                <li>The host selects a different door and opens it.</li>
+                                <li>The host gives the player the option of switching from her original choice to the remaining closed door.</li>
+                                <li>The door finally selected by the player is opened and she either wins or loses.</li>
+                              </ul>
+                                
+                                <input class="play" type="button" value="PLAY"/>
                         </div>
 
 		<script src="game.js"></script>

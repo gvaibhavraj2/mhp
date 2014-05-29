@@ -136,17 +136,51 @@ body
 		background-color: #858585;
 		box-shadow: 0 0 3px #858585;
 	}
-.reset a{
-               display:block;
-               text-decoration:none;
+.menu{
+              
                position:fixed;
                top:30px;
-               left:20px;
+               left:20px;	
+
+        }
+.menu>div{
+              float:left;
+              margin:10px; 
+              
+               text-decoration:none;
+               
+               
                 font-size: 20px;
 		color: #D0EAF1;
 		background-color: #428699;
                border: 1px solid;
 		box-shadow: 0 0 3px #3d9bb5;
-               
 
         }
+.rules{
+        
+        padding:30px;
+        
+        border: 1px solid;
+        	box-shadow: 0 0 3px #3d9bb5;
+        width:600px;
+        line-height:40px;
+        font-size:30px;
+        color:#FF0000;
+        background:#C0D8C0;
+        position:fixed;
+        top:200px;
+        left:300px;
+        height:350px;
+        display:none;
+        z-index:200;
+
+      
+        
+
+
+}
+.wrapper{
+    opacity:1;
+}
+

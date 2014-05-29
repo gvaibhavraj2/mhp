@@ -48,12 +48,12 @@ function new_game()
 		{
 			gate_content.push(1);
 			g_content[i].classList.add('car');
-			g_content[i].textContent = 'Car';
+			g_content[i].innerHTML= '<img src="images/Car.png"/>';
 			continue;
 		}
 		gate_content.push(0);
 		g_content[i].classList.add('goat');
-		g_content[i].textContent = 'Goat';
+		g_content[i].innerHTML= '<img src="images/Goat.png"/>';
 	}
 }
 function common_button_action()
@@ -105,3 +105,16 @@ function open_gate( selector )
 		}
 	}
 }
+function reloadpage(){
+     location.reload();
+}
+function displaybox(){
+    document.querySelector(".rules").style.display='block';
+    document.querySelector(".wrapper").style.opacity='0.4';
+    document.querySelector(".play").addEventListener('click',function(){
+        location.reload();
+
+});
+    event.preventDefault();
+}
+
