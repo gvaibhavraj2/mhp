@@ -34,7 +34,7 @@ body
 .gates
 	{
 		width: 300px;
-		height: 500px;
+		height: 400px;
 		float: left;
 		position: relative;
 		background-color: #3d9bb5;
@@ -183,4 +183,13 @@ body
 .wrapper{
     opacity:1;
 }
+.s{
+       line-height:40px;
+        font-size:30px;
+        color:#FF0000;
+        position:relative;
+        left:540px;
+        top:40px;
+       
 
+}

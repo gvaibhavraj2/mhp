@@ -2,14 +2,31 @@ window.onload = function()
 {
 	new_game();
 	var button = document.querySelector('.interface .button');
+ if(sessionStorage.trials){
+        document.getElementById("total").innerHTML=sessionStorage.trials;
+                document.getElementById("won").innerHTML=sessionStorage.won;
+                document.getElementById("lost").innerHTML=sessionStorage.lost; 
+}
+ else{
+ document.getElementById("total").innerHTML=0;
+                document.getElementById("won").innerHTML=0;
+                document.getElementById("lost").innerHTML=0; 
+
+}
+
+
 	button.onclick = function()
 	{
 		event.preventDefault();
 		common_button_action();
+                
+                
 	}
 }
 var opened = [];
 var gate_content = [];
+var w=0,l=0;
+var a=0,b=0,c=0;
 function gate_clicked( gate_no )
 {
 	var ordinal = ['First', 'Second', 'Third'];
@@ -102,6 +119,12 @@ function open_gate( selector )
 			var msg = 'You '+result;
 			document.querySelector('.interface .info').innerHTML = '<p class="result '+result+'">'+msg+'</p>';
 			display_msg();
+                        if(result=='won') {w=1;l=0;}
+                        else{w=0;l=1;}
+                        stats();
+                        document.getElementById("total").innerHTML=a;
+                document.getElementById("won").innerHTML=b;
+                document.getElementById("lost").innerHTML=c;
 		}
 	}
 }
@@ -116,5 +139,35 @@ function displaybox(){
 
 });
     event.preventDefault();
+}
+
+function stats(){
+    if(typeof(Storage)!=="undefined")
+  {
+  if (sessionStorage.trials)
+    {
+    sessionStorage.trials=Number(sessionStorage.trials)+1;
+       if(w==1) sessionStorage.won=Number(sessionStorage.won)+1;
+       else sessionStorage.lost=Number(sessionStorage.lost)+1;
+    }
+  else
+    {
+    sessionStorage.trials=1;
+    if(w==1) {sessionStorage.won=1;
+              sessionStorage.lost=0;}
+       else {sessionStorage.lost=1;
+             sessionStorage.won=0;}
+    }
+  a=sessionStorage.trials;
+  b=sessionStorage.won;
+  c=sessionStorage.lost;
+  }
+else
+  {
+  document.getElementById("total").innerHTML="Sorry, your browser does not support web storage...";
+  }
+
+
+
 }
 
