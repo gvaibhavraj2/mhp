@@ -179,16 +179,18 @@ function displaybox(){
 function stats(){
     if(typeof(Storage)!=="undefined")
   {
+   
 if(g_clicked[0] === g_clicked[1]){
   if (sessionStorage.s1)
     {
     sessionStorage.s1=Number(sessionStorage.s1)+1;
        if(w==1) sessionStorage.w1=Number(sessionStorage.w1)+1;
-      
+      if(!sessionStorage.s2)sessionStorage.s2=0;
     }
   else
     {
     sessionStorage.s1=1;
+     if(!sessionStorage.s2)sessionStorage.s2=0;
     if(w==1) {sessionStorage.w1=1;}
 else sessionStorage.w1=0;
               
@@ -203,11 +205,12 @@ if (sessionStorage.s2)
     {
     sessionStorage.s2=Number(sessionStorage.s2)+1;
        if(w==1) sessionStorage.w2=Number(sessionStorage.w2)+1;
-      
+       if(!sessionStorage.s1)sessionStorage.s1=0;
     }
   else
     {
     sessionStorage.s2=1;
+ if(!sessionStorage.s1)sessionStorage.s1=0;
     if(w==1) sessionStorage.w2=1;
 else sessionStorage.w2=0;
               
