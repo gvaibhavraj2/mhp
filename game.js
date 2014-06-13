@@ -149,8 +149,10 @@ function open_gate( selector )
 		{
 			var result = (selector.children[1].classList.contains('car'))?'won':'lose';
 			var msg = 'You '+result;
-			document.querySelector('.interface .info').innerHTML = '<p class="result '+result+'">'+msg+'</p>';
+
+			document.querySelector('.interface .info').innerHTML = '<p class="result '+result+'">'+msg+'</p></br><div class=" replay"><a href="">PLAY AGAIN</a></div>';
 			display_msg();
+
                         if(result=='won') {w=1;l=0;}
                         else{w=0;l=1;}
                         stats();
@@ -165,6 +167,14 @@ function open_gate( selector )
 }
 function reloadpage(){
      location.reload();
+    sessionStorage.s1=0;
+sessionStorage.s2=0;
+sessionStorage.p1=0;
+sessionStorage.p2=0;
+sessionStorage.w1=0;
+sessionStorage.w2=0;
+ 
+
 }
 function displaybox(){
     document.querySelector(".rules").style.display='block';

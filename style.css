@@ -197,3 +197,11 @@ body
 position:relative;
 top:40px;
 left:450px;}
+.replay{
+background-color: #d5d5d5;
+		position: fixed;
+		top: 290px;
+		left: 0;
+		right: 0;
+                width:300px;
+}
