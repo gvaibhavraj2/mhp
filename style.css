@@ -193,3 +193,7 @@ body
        
 
 }
+.stats{
+position:relative;
+top:40px;
+left:450px;}

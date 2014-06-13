@@ -2,15 +2,44 @@ window.onload = function()
 {
 	new_game();
 	var button = document.querySelector('.interface .button');
- if(sessionStorage.trials){
-        document.getElementById("total").innerHTML=sessionStorage.trials;
-                document.getElementById("won").innerHTML=sessionStorage.won;
-                document.getElementById("lost").innerHTML=sessionStorage.lost; 
+  if(sessionStorage.s1||sessionStorage.s2){
+ if(sessionStorage.s1===undefined){
+  document.getElementById("s02").innerHTML=sessionStorage.s2;
+                document.getElementById("w02").innerHTML=sessionStorage.w2;
+                document.getElementById("p02").innerHTML=sessionStorage.p2; 
+         document.getElementById("s01").innerHTML=0;
+                document.getElementById("w01").innerHTML=0;
+                document.getElementById("p01").innerHTML=0; 
 }
+else if(sessionStorage.s2===undefined){
+document.getElementById("s01").innerHTML=sessionStorage.s1;
+                document.getElementById("w01").innerHTML=sessionStorage.w1;
+                document.getElementById("p01").innerHTML=sessionStorage.p1; 
+         document.getElementById("s02").innerHTML=0;
+                document.getElementById("w02").innerHTML=0;
+                document.getElementById("p02").innerHTML=0; 
+}
+
+else{
+        document.getElementById("s02").innerHTML=sessionStorage.s2;
+                document.getElementById("w02").innerHTML=sessionStorage.w2;
+                document.getElementById("p02").innerHTML=sessionStorage.p2; 
+         document.getElementById("s01").innerHTML=sessionStorage.s1;
+                document.getElementById("w01").innerHTML=sessionStorage.w1;
+                document.getElementById("p01").innerHTML=sessionStorage.p1; 
+
+}
+}
+
+
+
  else{
- document.getElementById("total").innerHTML=0;
-                document.getElementById("won").innerHTML=0;
-                document.getElementById("lost").innerHTML=0; 
+ document.getElementById("s02").innerHTML=0;
+                document.getElementById("w02").innerHTML=0;
+                document.getElementById("p02").innerHTML=0; 
+         document.getElementById("s01").innerHTML=0;
+                document.getElementById("w01").innerHTML=0;
+                document.getElementById("p01").innerHTML=0; 
 
 }
 
@@ -25,8 +54,9 @@ window.onload = function()
 }
 var opened = [];
 var gate_content = [];
+var g_clicked=[];
 var w=0,l=0;
-var a=0,b=0,c=0;
+var a=0,b=0,c=0,d=0,e=0,f=0;
 function gate_clicked( gate_no )
 {
 	var ordinal = ['First', 'Second', 'Third'];
@@ -44,10 +74,12 @@ function gate_clicked( gate_no )
 		set_instruction(msg);
 		display_msg();
 		document.querySelector('.button').addEventListener('click', extra1, null);
+                g_clicked.push(gate_no);
 	}
 	else
 	{
 		open_gate( document.querySelectorAll('.gates')[gate_no] );
+                g_clicked.push(gate_no);
 	}
 
 }
@@ -122,9 +154,12 @@ function open_gate( selector )
                         if(result=='won') {w=1;l=0;}
                         else{w=0;l=1;}
                         stats();
-                        document.getElementById("total").innerHTML=a;
-                document.getElementById("won").innerHTML=b;
-                document.getElementById("lost").innerHTML=c;
+                        document.getElementById("s01").innerHTML=a;
+                document.getElementById("w01").innerHTML=b;
+                document.getElementById("p01").innerHTML=c;
+                  document.getElementById("s02").innerHTML=d;
+                document.getElementById("w02").innerHTML=e;
+                document.getElementById("p02").innerHTML=f;
 		}
 	}
 }
@@ -144,23 +179,59 @@ function displaybox(){
 function stats(){
     if(typeof(Storage)!=="undefined")
   {
-  if (sessionStorage.trials)
+if(g_clicked[0] === g_clicked[1]){
+  if (sessionStorage.s1)
     {
-    sessionStorage.trials=Number(sessionStorage.trials)+1;
-       if(w==1) sessionStorage.won=Number(sessionStorage.won)+1;
-       else sessionStorage.lost=Number(sessionStorage.lost)+1;
+    sessionStorage.s1=Number(sessionStorage.s1)+1;
+       if(w==1) sessionStorage.w1=Number(sessionStorage.w1)+1;
+      
     }
   else
     {
-    sessionStorage.trials=1;
-    if(w==1) {sessionStorage.won=1;
-              sessionStorage.lost=0;}
-       else {sessionStorage.lost=1;
-             sessionStorage.won=0;}
+    sessionStorage.s1=1;
+    if(w==1) {sessionStorage.w1=1;}
+else sessionStorage.w1=0;
+              
+       
     }
-  a=sessionStorage.trials;
-  b=sessionStorage.won;
-  c=sessionStorage.lost;
+sessionStorage.p1=Number(sessionStorage.w1)*100/Number(sessionStorage.s1);
+}
+
+else{
+
+if (sessionStorage.s2)
+    {
+    sessionStorage.s2=Number(sessionStorage.s2)+1;
+       if(w==1) sessionStorage.w2=Number(sessionStorage.w2)+1;
+      
+    }
+  else
+    {
+    sessionStorage.s2=1;
+    if(w==1) sessionStorage.w2=1;
+else sessionStorage.w2=0;
+              
+       
+    }
+sessionStorage.p2=Number(sessionStorage.w2)*100/Number(sessionStorage.s2);
+
+}
+if(!sessionStorage.w1){
+sessionStorage.w1=0;
+sessionStorage.p1=0;
+}
+if(!sessionStorage.w2){
+sessionStorage.w2=0;
+sessionStorage.p2=0;
+}
+
+
+a=sessionStorage.s1;
+b=sessionStorage.w1;
+c=sessionStorage.p1;
+d=sessionStorage.s2;
+e=sessionStorage.w2;
+f=sessionStorage.p2;
   }
 else
   {
